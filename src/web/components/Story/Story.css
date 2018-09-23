@@ -1,0 +1,58 @@
+/* TODO: Refactor this to be proud (or at least not ashamed) of this code */
+
+#root > .story {
+    padding: 10px !important;
+}
+
+.story h1.story-title {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    line-height: 1.5;
+}
+
+.story span.story-subtitle {
+    line-height: 1.5;
+    color: rgb(137, 141, 151);
+}
+
+.story span.story-subtitle p {
+    font-size: 14px;
+    color: rgb(54, 58, 69);
+}
+
+.story h3.chapter-h3 {
+    line-height: 1.5;
+    margin-bottom: 0 !important;
+}
+
+.story span.chapter-subtitle {
+    line-height: 1.5;
+    color: rgb(137, 141, 151);
+}
+
+.story hr.chatper-hr { /* TODO: Make PR to fix this typo */
+    background: none !important;
+    margin: 0 !important;
+}
+
+.story div.chapter-header {
+    margin-bottom: 0 !important;
+}
+
+.story h3.section-title {
+    margin-bottom: 0 !important;
+}
+
+.story div.section-info p {
+    font-size: 14px;
+    color: rgb(54, 58, 69);
+}
+
+.story table.propTable {
+    margin-left: 0 !important;
+}
+
+.story span.chapter-subtitle p {
+    font-size: 14px;
+    color: rgb(54, 58, 69);
+}

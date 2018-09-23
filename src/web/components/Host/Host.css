@@ -1,0 +1,11 @@
+.host-wrapper.host-wrapper-inline > div {
+    position: relative;
+}
+
+.host-wrapper > div > div {
+    margin: 40px;
+}
+
+.host-wrapper > div > div > div {
+    justify-content: center;
+}

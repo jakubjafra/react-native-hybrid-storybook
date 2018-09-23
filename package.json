@@ -1,0 +1,28 @@
+{
+  "name": "react-native-hybrid-storybook",
+  "version": "0.1.0",
+  "author": "Jakub Jafra",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@storybook/addons": "^3.4.11",
+    "@storybook/addon-actions": "^3.4.11",
+    "@storybook/addon-options": "^3.4.11",
+    "@storybook/react": "^3.4.11",
+    "@storybook/react-native": "^3.4.11",
+    "prop-types": "^15.6.2",
+    "react-art": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-native-web": "^0.9.0",
+    "react-storybook-addon-chapters": "https://github.com/khronedev/react-storybook-addon-chapters#a2f064e9693b997fa0085b3641e411b0059c22ad",
+    "storybook-addon-jsx": "^5.4.0",
+    "storybook-host": "^5.0.0"
+  },
+  "scripts": {
+    "build": "rm -rf ./node_modules"
+  },
+  "peerDependencies": {
+    "babel-core": "=6.24.1",
+    "react": "^16.5.2"
+  }
+}

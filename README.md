@@ -36,8 +36,8 @@ Usage
 
 | Stack               | Web rendering only ("**minimal**")        | Web & native rendering ("**full**")    |
 |:-------------------:|:-------------------------------------:|:----------------------------------:|
-| Expo / CRNA         | [Link](docs/integration,md#minimal)   | [Link](docs/integration.md#full)   |
-| "pure" react-native | [Link](docs/integration,md#minimal-1) | [Link](docs/integration.md#full-1) |
+| Expo / CRNA         | [Link](docs/integration.md#minimal)   | [Link](docs/integration.md#full)   |
+| "pure" react-native | [Link](docs/integration.md#minimal-1) | [Link](docs/integration.md#full-1) |
 
 ### Quick start
 
@@ -46,12 +46,12 @@ Minimal recipe to start documenting your react-native UI & components in the web
 #### Installation
 
 1. Install package:
-````
+````bash
 yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
 ````
 
 2. Add these entries to `package.json`:
-````
+````json
 {
     "scripts": {
         "storybook-web": "node ./node_modules/@storybook/react/dist/server/index.js -p 9001 -c ./node_modules/react-native-hybrid-storybook/src/web/storybook",
@@ -66,7 +66,7 @@ yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
 ````
 
 3. Create any documentation entry for your component as `ExampleComponent.story.js`:
-````
+````js
 import ExampleComponent from 'react';
 import {
     storiesOf,
@@ -82,10 +82,8 @@ storiesOf('ExampleComponent', module)
 #### Usage
 
 Run documentation (in web mode):
-````
-yarn run storybook-web
-
-# Open http://localhost:9001 in the browser
+````bash
+yarn run storybook-web # Now open http://localhost:9001 in the browser
 ````
 
 

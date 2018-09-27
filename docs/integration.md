@@ -12,7 +12,7 @@ This section outlines only hybrid rendering mode with use of `react-native-web`.
 yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
 ````
 
-2. Add these entries to `package.json` (choose one of `storybook-native-device` depending on your app):
+2. Add these entries to `package.json`:
 ````
 {
     "scripts": {
@@ -61,7 +61,7 @@ This section outlines full integration with Expo-based apps. You will be able to
 yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
 ````
 
-2. Add these entries to `package.json` (choose one of `storybook-native-device` depending on your app):
+2. Add these entries to `package.json`:
 ````
 {
     "scripts": {
@@ -142,7 +142,7 @@ This section outlines only hybrid rendering mode with use of `react-native-web`.
 yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
 ````
 
-2. Add these entries to `package.json` (choose one of `storybook-native-device` depending on your app):
+2. Add these entries to `package.json`:
 ````
 {
     "scripts": {
@@ -191,7 +191,7 @@ This section outlines full integration with just react native based apps - no ex
 yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
 ````
 
-2. Add these entries to `package.json` (choose one of `storybook-native-device` depending on your app):
+2. Add these entries to `package.json`:
 ````
 {
     "scripts": {

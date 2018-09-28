@@ -23,7 +23,8 @@ You can run this in 2 basic modes:
   * blocks your application
   * integrated into your app
 
-* `web` - a "production" build, where you can develop your application with support of well crafted documentation
+* `web`
+  * a "production" build, where you can develop your application with support of well crafted documentation
   * special webpack bundler replaces `react-native` imports with `react-native-web` ones
   * used mainly for **production** - you can develop your application with support of (hopefully) well crafted documentation
   * does not block your application
@@ -31,13 +32,6 @@ You can run this in 2 basic modes:
 
 Usage
 -----
-
-### Recipes
-
-| Stack               | Web rendering only ("**minimal**")        | Web & native rendering ("**full**")    |
-|:-------------------:|:-------------------------------------:|:----------------------------------:|
-| Expo / CRNA         | [Link](docs/integration.md#minimal)   | [Link](docs/integration.md#full)   |
-| "pure" react-native | [Link](docs/integration.md#minimal-1) | [Link](docs/integration.md#full-1) |
 
 ### Quick start
 
@@ -86,6 +80,12 @@ Run documentation (in web mode):
 yarn run storybook-web # Now open http://localhost:9001 in the browser
 ````
 
+### Recipes
+
+| Stack                 | Web rendering only ("**minimal**")    | Web & native rendering ("**full**")    |
+|:---------------------:|:-------------------------------------:|:----------------------------------:|
+| Expo / CRNA           | [Link](docs/integration.md#minimal)   | [Link](docs/integration.md#full)   |
+| "Pure" `react-native` | [Link](docs/integration.md#minimal-1) | [Link](docs/integration.md#full-1) |
 
 Configuration options
 ---------------------

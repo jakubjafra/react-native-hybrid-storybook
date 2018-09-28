@@ -118,4 +118,4 @@ Expo (as of Expo 30.0.1) still uses React Native 0.55.4 version, that uses React
 Examples
 --------
 
-[Many examples can be found in the examples repo.](https://github.com/khronedev/react-native-hybrid-storybook)
+[Many examples can be found in the examples repo.](https://github.com/khronedev/react-native-hybrid-storybook-examplesg)

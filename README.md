@@ -84,8 +84,8 @@ yarn run storybook-web # Now open http://localhost:9001 in the browser
 
 | Stack                 | Web rendering only ("**minimal**")    | Web & native rendering ("**full**")    |
 |:---------------------:|:-------------------------------------:|:----------------------------------:|
-| Expo / CRNA           | [Link](docs/integration.md#minimal)   | [Link](docs/integration.md#full)   |
-| "Pure" `react-native` | [Link](docs/integration.md#minimal-1) | [Link](docs/integration.md#full-1) |
+| Expo / CRNA           | [Integration](docs/integration.md#minimal), [Example](https://github.com/khronedev/react-native-hybrid-storybook-examples/tree/master/minimal-expo)  | [Integration](docs/integration.md#full), [Example](https://github.com/khronedev/react-native-hybrid-storybook-examples/tree/master/crna) |
+| "Pure" `react-native` | [Integration](docs/integration.md#minimal-1) | [Integration](docs/integration.md#full-1), [Example](https://github.com/khronedev/react-native-hybrid-storybook-examples/tree/master/rninit) |
 
 Configuration options
 ---------------------
@@ -96,6 +96,18 @@ In your `package.json` there is a possibility to specify few options:
 |:-----------------------------:|:--------------:|:--------:|:------------------------:|
 | `expo`                        | `true`, `false` | `false` | Is this an expo project? This information is helpful for `web` rendering |
 | `magic.autoResolveStories`    | `true`, `false` | `false` | In `web` mode it can automatically resolve `*.story.js` files for you, without maintaing list in `storybook.js` |
+
+Defaults:
+````
+{
+    "react-native-hybrid-storybook": {
+        "expo": false,
+        "magic": {
+            "autoResolveStories": false
+        }
+    }
+}
+````
 
 Known issues
 ------------

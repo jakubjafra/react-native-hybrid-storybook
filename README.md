@@ -3,7 +3,7 @@ react-native-hybrid-storybook
 
 Document your `react-native` project's UI components, with browser preview.
 
-![Example cover screenshot](docs/cover.png?raw=true)
+![Example cover screenshot](docs/assets/cover.png?raw=true)
 
 This repository is a `react-native` optimized, predefined set of rules for [Storybook](https://storybook.js.org/) allowing you to easliy create per-project UI documentation for your `react-native` components.
 
@@ -23,7 +23,8 @@ You can run this in 2 basic modes:
   * blocks your application
   * integrated into your app
 
-* `web` - a "production" build, where you can develop your application with support of well crafted documentation
+* `web`
+  * a "production" build, where you can develop your application with support of well crafted documentation
   * special webpack bundler replaces `react-native` imports with `react-native-web` ones
   * used mainly for **production** - you can develop your application with support of (hopefully) well crafted documentation
   * does not block your application
@@ -32,19 +33,22 @@ You can run this in 2 basic modes:
 Usage
 -----
 
+### Quick start
+
+Minimal recipe to start documenting your react-native UI & components in the web.
+
+#### Installation
+
 1. Install package:
-````
+````bash
 yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
 ````
 
-2. Add these entries to `package.json` (choose one of `storybook-native-device` depending on your app):
-````
+2. Add these entries to `package.json`:
+````json
 {
     "scripts": {
         "storybook-web": "node ./node_modules/@storybook/react/dist/server/index.js -p 9001 -c ./node_modules/react-native-hybrid-storybook/src/web/storybook",
-        "storybook-native-device": "REACT_NATIVE_STORYBOOK=true expo start",
-        "storybook-native-device": "REACT_NATIVE_STORYBOOK=true node node_modules/react-native/local-cli/cli.js start",
-        "storybook-native": "node ./node_modules/@storybook/react-native/dist/bin/storybook-start.js -p 7007 -c ./node_modules/react-native-hybrid-storybook/src/native/storybook"
     },
     "react-native-hybrid-storybook": {
         "expo": true,
@@ -55,19 +59,8 @@ yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
 }
 ````
 
-3. _(Optional)_ For pure `react-native` apps, we suggest to go with [`transform-inline-environment-variables`](https://www.npmjs.com/package/babel-plugin-transform-inline-environment-variables) in order to pass env variables to the project:
-````
-yarn add transform-inline-environment-variables
-````
-Don't forget to edit your `.babelrc` to include this:
-````
-"plugins": [
-  "transform-inline-environment-variables"
-]
-````
-
-4. Create any documentation entry for your component as `ExampleComponent.story.js`:
-````
+3. Create any documentation entry for your component as `ExampleComponent.story.js`:
+````js
 import ExampleComponent from 'react';
 import {
     storiesOf,
@@ -80,39 +73,19 @@ storiesOf('ExampleComponent', module)
     ));
 ````
 
-5. Add `./storybook.js` file to your project root, with contents:
-````
-// Unfortunately Metro bundler does not support wildcard require, so you need to maintain this list:
-import './src/components/ExampleComponent.story.js'; // <- Replace it with correct path
+#### Usage
 
-export { StorybookUI as default } from 'react-native-hybrid-storybook';
-````
-
-6. Replace your initial file (like `./path/to/your/real/App`, `./App.js` or `./index.js`) with conditional rendering:
-````
-import App from './path/to/your/real/App'; // <- Replace it with correct path
-import Storybook from './storybook';
-
-export default process.env.REACT_NATIVE_STORYBOOK ? Storybook : App;
+Run documentation (in web mode):
+````bash
+yarn run storybook-web # Now open http://localhost:9001 in the browser
 ````
 
-7. Run documentation (in web mode):
-````
-yarn run storybook-web
+### Recipes
 
-# Open http://localhost:9001 in the browser
-````
-
-8. Run documentation (on the device):
-````
-# 1st terminal window:
-yarn run storybook-native
-# 2nd terminal window:
-yarn run storybook-native-device
-
-# Open http://localhost:7007 in the browser
-# Run your app as you'd normally on the device
-````
+| Stack                 | Web rendering only ("**minimal**")    | Web & native rendering ("**full**")    |
+|:---------------------:|:-------------------------------------:|:----------------------------------:|
+| Expo / CRNA           | [Integration](docs/integration.md#minimal), [Example](https://github.com/khronedev/react-native-hybrid-storybook-examples/tree/master/minimal-expo)  | [Integration](docs/integration.md#full), [Example](https://github.com/khronedev/react-native-hybrid-storybook-examples/tree/master/crna) |
+| "Pure" `react-native` | [Integration](docs/integration.md#minimal-1) | [Integration](docs/integration.md#full-1), [Example](https://github.com/khronedev/react-native-hybrid-storybook-examples/tree/master/rninit) |
 
 Configuration options
 ---------------------
@@ -123,6 +96,18 @@ In your `package.json` there is a possibility to specify few options:
 |:-----------------------------:|:--------------:|:--------:|:------------------------:|
 | `expo`                        | `true`, `false` | `false` | Is this an expo project? This information is helpful for `web` rendering |
 | `magic.autoResolveStories`    | `true`, `false` | `false` | In `web` mode it can automatically resolve `*.story.js` files for you, without maintaing list in `storybook.js` |
+
+Defaults:
+````
+{
+    "react-native-hybrid-storybook": {
+        "expo": false,
+        "magic": {
+            "autoResolveStories": false
+        }
+    }
+}
+````
 
 Known issues
 ------------

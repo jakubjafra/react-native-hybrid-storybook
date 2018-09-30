@@ -1,5 +1,7 @@
 const fs = require('fs');
 const webpack = require('webpack');
+const merge = require('lodash.merge');
+const _ = { merge };
 
 const LIBRARY_NAME = 'react-native-hybrid-storybook';
 const PACKAGE_JSON_ENTRY = LIBRARY_NAME;
@@ -8,7 +10,7 @@ const PATH_TO_PARENT_ROOT = '../../../../../../';
 const PWD = process.env.PWD || fs.realpathSync(__dirname + PATH_TO_PARENT_ROOT);
 const packageJson = JSON.parse(fs.readFileSync(PWD + '/package.json'));
 
-const pluginDefaultConfig = {
+const defaults = {
     expo: false,
     magic: {
         autoResolveStories: false,
@@ -18,10 +20,7 @@ const pluginDefaultConfig = {
 module.exports = (storybookBaseConfig, configType, defaultConfig) => {
     const packageJsonConfig = (packageJson[PACKAGE_JSON_ENTRY] || {});
 
-    // TODO: FIXME, use lodash defaults or something
-    const config = pluginDefaultConfig;
-    config['expo'] = packageJsonConfig['expo'] || pluginDefaultConfig['expo'];
-    config.magic['autoResolveStories'] = (packageJsonConfig.magic || {})['autoResolveStories'] || pluginDefaultConfig.magic['autoResolveStories'];
+    const config = _.merge({}, defaults, packageJsonConfig);
 
     const alias = {
         [LIBRARY_NAME]: LIBRARY_NAME + '/src/web',

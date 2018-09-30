@@ -5,9 +5,10 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@storybook/addons": "^3.4.11",
     "@storybook/addon-actions": "^3.4.11",
+    "@storybook/addon-knobs": "^3.4.11",
     "@storybook/addon-options": "^3.4.11",
+    "@storybook/addons": "^3.4.11",
     "@storybook/react": "^3.4.11",
     "@storybook/react-native": "^3.4.11",
     "prop-types": "^15.6.2",
@@ -15,7 +16,6 @@
     "react-dom": "^16.5.2",
     "react-native-web": "^0.9.0",
     "react-storybook-addon-chapters": "^2.1.8",
-    "storybook-addon-jsx": "^5.4.0",
     "storybook-host": "^5.0.0"
   },
   "scripts": {

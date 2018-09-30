@@ -1,6 +1,9 @@
 import React from 'react';
 import { AppRegistry } from 'react-native';
-import { getStorybookUI } from '@storybook/react-native';
+import { getStorybookUI, configure, addDecorator } from '@storybook/react-native';
+import { withKnobs } from '@storybook/addon-knobs';
+
+addDecorator(withKnobs);
 
 // This assumes that storybook is running on the same host as your RN packager,
 // to set manually use, e.g. host: 'localhost' option

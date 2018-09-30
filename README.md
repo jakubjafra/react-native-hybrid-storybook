@@ -16,7 +16,7 @@ Philosophy
   * Building on top of [Storybook](https://storybook.js.org) should allow to easily adjust the default rules to your project, avoiding lock-in.
 * Minimal setup time.
   * No need to set up webpack, loaders, or go into any of that fuss. Just install `react-native-hybrid-storybook` and run one command to start creating your documentation.
-  * Popular [Storybook plugins]() pre-installed.
+  * Popular Storybook plugins pre-installed.
 * Web-only documentation preview (as static page) out of the box.
 
 #### Modes
@@ -121,6 +121,10 @@ This comes with predefined set of plugins, that're working in [both web & native
 * [Addon knobs](https://github.com/storybooks/storybook/tree/master/addons/knobs) - for playing with your component's properties in real time
 * [Addon actions](https://github.com/storybooks/storybook/tree/master/addons/actions) - for logging actions
 * [Addon options](https://github.com/storybooks/storybook/tree/master/addons/options) - with some preconfigured options
+
+Some plugins & integrations are web only (will not render / be ignored on the device):
+* [react-storybook-addon-chapters](https://github.com/Checkfront/react-storybook-addon-chapters) - adds structural template to document your components, see [CRNA example](https://github.com/khronedev/react-native-hybrid-storybook-examples/blob/master/crna/src/components/Button.story.js) for usage
+* [storybook-host](https://github.com/philcockfield/storybook-host) - better web preview rendering
 
 Examples
 --------

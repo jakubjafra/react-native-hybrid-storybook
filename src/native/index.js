@@ -2,8 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react-native';
 import StorybookUI from './components/StorybookUI';
-
-const noOpDecorator = story => story();
+import NoOpDecorator from './components/NoOpDecorator';
 
 module.exports = {
     storiesOf,
@@ -11,7 +10,7 @@ module.exports = {
 
     // *-web compatibility no-op exports...
     Host: React.Fragment,
-    createHostDecorator: () => noOpDecorator,
-    fullScreenHostDecorator: noOpDecorator,
-    inlineHostDecorator: noOpDecorator,
+    createHostDecorator: () => NoOpDecorator,
+    fullScreenHostDecorator: NoOpDecorator,
+    inlineHostDecorator: NoOpDecorator,
 };

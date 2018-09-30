@@ -101,18 +101,27 @@ In your `package.json` there is a possibility to specify few options:
 |:-----------------------------:|:--------------:|:--------:|:------------------------:|
 | `expo`                        | `true`, `false` | `false` | Is this an expo project? This information is helpful for `web` rendering |
 | `magic.autoResolveStories`    | `true`, `false` | `false` | In `web` mode it can automatically resolve `*.story.js` files for you, without maintaing list in `storybook.js` |
+| `addonOptions`                | `object`        | (below) | See [`addon-options` documentation for reference](https://github.com/storybooks/storybook/tree/master/addons/options). |
+| `getStorybookUI`              | `object`       | (below) | See [`storybook/react-native` plugin documentation for reference](https://github.com/storybooks/storybook/tree/master/app/react-native#getstorybookui-options). No effect in web mode. |
 
 Defaults:
 ````
 {
-    "react-native-hybrid-storybook": {
-        "expo": false,
-        "magic": {
-            "autoResolveStories": false
-        }
+    "expo": false,
+    "magic": {
+        "autoResolveStories": false,
+    },
+    "addonOptions": {
+        "addonPanelInRight": true,
+    },
+    "getStorybookUI": {
+        "port": 7007,
+        "onDeviceUI": true,
     }
 }
 ````
+
+Options under `magic` are likely to be changed in future releases.
 
 Plugins
 -------

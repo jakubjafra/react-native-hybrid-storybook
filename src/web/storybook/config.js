@@ -6,7 +6,10 @@ import { withKnobs } from '@storybook/addon-knobs';
 
 import chaptersAddon, { setDefaults as chaptersAddonSetDefaults } from 'react-storybook-addon-chapters';
 
-const magic = process.env.__STORYBOOK_CONFIG.magic;
+const {
+    magic,
+    addonOptions,
+} = process.env.__STORYBOOK_CONFIG;
 
 const autoResolveReq = magic.autoResolveStories === true
     ? require.context('../../../../../', true, /\.story\.js$/)
@@ -35,8 +38,6 @@ setAddon(chaptersAddon);
 
 addDecorator(withKnobs);
 
-setOptions({
-    addonPanelInRight: true,
-});
+setOptions(addonOptions);
 
 configure(loadStories, module);

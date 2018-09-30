@@ -14,5 +14,7 @@ module.exports = {
     createHostDecorator,
     fullScreenHostDecorator,
     inlineHostDecorator,
-    StorybookUI: {}, // for *-native compatibility
+
+    // for *-native compatibility
+    StorybookUI: {},
 };

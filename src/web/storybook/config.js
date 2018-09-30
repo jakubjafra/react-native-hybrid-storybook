@@ -1,10 +1,15 @@
 import React from 'react';
-import { configure, setAddon } from '@storybook/react';
+import { configure, setAddon, addDecorator } from '@storybook/react';
+
 import { setOptions } from '@storybook/addon-options';
-import JSXAddon from 'storybook-addon-jsx';
+import { withKnobs } from '@storybook/addon-knobs';
+
 import chaptersAddon, { setDefaults as chaptersAddonSetDefaults } from 'react-storybook-addon-chapters';
 
-const magic = process.env.__STORYBOOK_CONFIG.magic;
+const {
+    magic,
+    addonOptions,
+} = process.env.__STORYBOOK_CONFIG;
 
 const autoResolveReq = magic.autoResolveStories === true
     ? require.context('../../../../../', true, /\.story\.js$/)
@@ -31,9 +36,8 @@ chaptersAddonSetDefaults({
 });
 setAddon(chaptersAddon);
 
-setAddon(JSXAddon);
-setOptions({
-    addonPanelInRight: true,
-});
+addDecorator(withKnobs);
+
+setOptions(addonOptions);
 
 configure(loadStories, module);

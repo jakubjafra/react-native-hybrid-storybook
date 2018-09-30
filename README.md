@@ -7,14 +7,19 @@ Document your `react-native` project's UI components, with browser preview.
 
 This repository is a `react-native` optimized, predefined set of rules for [Storybook](https://storybook.js.org/) allowing you to easliy create per-project UI documentation for your `react-native` components.
 
-#### Highlights & key concepts
-
-* Easy to get started - no need to set up webpack, loaders, or go into any of that fuss. Just install `react-native-hybrid-storybook` and run one command to start creating your documentation.
-* Extensible - building on top of `storybook` should allow to easily adjust the default rules to your project, avoiding lock-in.
-* Easy preview - `react-native-web` integration that allows to render most non-native components in the browser.
-
 Philosophy
 ----------
+
+* **A set of tools for creating per-project-basis component libraries.**
+  * Example-based auto-generated documentation.
+* Extensible
+  * Building on top of [Storybook](https://storybook.js.org) should allow to easily adjust the default rules to your project, avoiding lock-in.
+* Minimal setup time.
+  * No need to set up webpack, loaders, or go into any of that fuss. Just install `react-native-hybrid-storybook` and run one command to start creating your documentation.
+  * Popular Storybook plugins pre-installed.
+* Web-only documentation preview (as static page) out of the box.
+
+#### Modes
 
 You can run this in 2 basic modes:
 * `native`
@@ -96,26 +101,47 @@ In your `package.json` there is a possibility to specify few options:
 |:-----------------------------:|:--------------:|:--------:|:------------------------:|
 | `expo`                        | `true`, `false` | `false` | Is this an expo project? This information is helpful for `web` rendering |
 | `magic.autoResolveStories`    | `true`, `false` | `false` | In `web` mode it can automatically resolve `*.story.js` files for you, without maintaing list in `storybook.js` |
+| `addonOptions`                | `object`        | (below) | See [`addon-options` documentation for reference](https://github.com/storybooks/storybook/tree/master/addons/options). |
+| `getStorybookUI`              | `object`       | (below) | See [`storybook/react-native` plugin documentation for reference](https://github.com/storybooks/storybook/tree/master/app/react-native#getstorybookui-options). No effect in web mode. |
 
 Defaults:
 ````
 {
-    "react-native-hybrid-storybook": {
-        "expo": false,
-        "magic": {
-            "autoResolveStories": false
-        }
+    "expo": false,
+    "magic": {
+        "autoResolveStories": false,
+    },
+    "addonOptions": {
+        "addonPanelInRight": true,
+    },
+    "getStorybookUI": {
+        "port": 7007,
+        "onDeviceUI": true,
     }
 }
 ````
+
+Options under `magic` are likely to be changed in future releases.
+
+Plugins
+-------
+
+This comes with predefined set of plugins, that're working in [both web & native](https://github.com/storybooks/storybook/blob/master/ADDONS_SUPPORT.md) modes:
+* [Addon knobs](https://github.com/storybooks/storybook/tree/master/addons/knobs) - for playing with your component's properties in real time
+* [Addon actions](https://github.com/storybooks/storybook/tree/master/addons/actions) - for logging actions
+* [Addon options](https://github.com/storybooks/storybook/tree/master/addons/options) - with some preconfigured options
+
+Some plugins & integrations are web only (will not render / be ignored on the device):
+* [react-storybook-addon-chapters](https://github.com/Checkfront/react-storybook-addon-chapters) - adds structural template to document your components, see [CRNA example](https://github.com/khronedev/react-native-hybrid-storybook-examples/blob/master/crna/src/components/Button.story.js) for usage
+* [storybook-host](https://github.com/philcockfield/storybook-host) - better web preview rendering
+
+Examples
+--------
+
+[Many examples can be found in the examples repo.](https://github.com/khronedev/react-native-hybrid-storybook)
 
 Known issues
 ------------
 
 ##### React version does not match React native prefered version for Expo installations
 Expo (as of Expo 30.0.1) still uses React Native 0.55.4 version, that uses React 16.3.1 - which has very rough support from `react-native-web`. So I decided to go with latest React version (`16.5.2`), and just wait for Expo to upgrade theirs.
-
-Examples
---------
-
-[Many examples can be found in the examples repo.](https://github.com/khronedev/react-native-hybrid-storybook-examplesg)

@@ -29,7 +29,7 @@ yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
 
 3. Create any documentation entry for your component as `ExampleComponent.story.js`:
 ````
-import ExampleComponent from 'react';
+import React from 'react';
 import {
     storiesOf,
 } from 'react-native-hybrid-storybook';
@@ -80,7 +80,7 @@ yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
 
 3. Create any documentation entry for your component as `ExampleComponent.story.js`:
 ````
-import ExampleComponent from 'react';
+import React from 'react';
 import {
     storiesOf,
 } from 'react-native-hybrid-storybook';
@@ -159,7 +159,7 @@ yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
 
 3. Create any documentation entry for your component as `ExampleComponent.story.js`:
 ````
-import ExampleComponent from 'react';
+import React from 'react';
 import {
     storiesOf,
 } from 'react-native-hybrid-storybook';
@@ -221,7 +221,7 @@ Don't forget to edit your `.babelrc` to include this:
 
 4. Create any documentation entry for your component as `ExampleComponent.story.js`:
 ````
-import ExampleComponent from 'react';
+import React from 'react';
 import {
     storiesOf,
 } from 'react-native-hybrid-storybook';

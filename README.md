@@ -66,7 +66,7 @@ yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
 
 3. Create any documentation entry for your component as `ExampleComponent.story.js`:
 ````js
-import ExampleComponent from 'react';
+import React from 'react';
 import {
     storiesOf,
 } from 'react-native-hybrid-storybook';

@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 const webpack = require('webpack');
 
 const { createConfig, LIBRARY_NAME } = require('../../common/config');
@@ -15,9 +16,9 @@ module.exports = (storybookBaseConfig, configType, defaultConfig) => {
         'react-native': 'react-native-web',
     };
 
-    if (config.expo) {
-        alias['react-native-vector-icons'] = '@expo/vector-icons';
-    }
+    // if (config.expo) {
+    //     alias['react-native-vector-icons'] = '@expo/vector-icons';
+    // }
 
     defaultConfig.resolve = {
         modules: ['node_modules'],
@@ -25,11 +26,27 @@ module.exports = (storybookBaseConfig, configType, defaultConfig) => {
         alias: alias,
     };
 
+    defaultConfig.module.rules[0].exclude = [];
+
     // babel loader
     defaultConfig.module.rules[0].exclude = function (modulePath) {
+        return /node_modules\/art/.test(modulePath);
+    };
+    /*
+    defaultConfig.module.rules[0].exclude = function (modulePath) {
         return /node_modules/.test(modulePath)
+            && !new RegExp('node_modules\/react-native-elements').test(modulePath)
+            && !new RegExp('node_modules\/@expo/vector-icons').test(modulePath)
+            && !new RegExp('node_modules\/react-native-touchable-scale').test(modulePath)
             && !new RegExp('node_modules\/' + LIBRARY_NAME).test(modulePath);
     };
+    */
+
+    defaultConfig.module.rules.push({
+        test: /\.ttf$/,
+        loader: 'url-loader', // or directly file-loader
+        include: path.resolve(PWD, 'node_modules/react-native-vector-icons'),
+    });
 
     // see ./config.js for __STORYBOOK_CONFIG usage
     defaultConfig.plugins.push(new webpack.DefinePlugin({

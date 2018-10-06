@@ -1,11 +1,6 @@
 {
   "presets": [
-    ["env", {
-      "targets": {
-        "uglify": true,
-        "node": "4.10"
-      }
-    }],
+    "env",
     "react",
     "stage-0"
   ],

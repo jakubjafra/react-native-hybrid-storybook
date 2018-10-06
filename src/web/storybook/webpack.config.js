@@ -16,10 +16,6 @@ module.exports = (storybookBaseConfig, configType, defaultConfig) => {
         'react-native': 'react-native-web',
     };
 
-    // if (config.expo) {
-    //     alias['react-native-vector-icons'] = '@expo/vector-icons';
-    // }
-
     defaultConfig.resolve = {
         modules: ['node_modules'],
         extensions: ['.web.js', '.js', '.json', '.web.jsx', '.jsx'],
@@ -28,19 +24,14 @@ module.exports = (storybookBaseConfig, configType, defaultConfig) => {
 
     defaultConfig.module.rules[0].exclude = [];
 
+    const excludedPaths = [
+        'node_modules/art',
+    ];
+
     // babel loader
     defaultConfig.module.rules[0].exclude = function (modulePath) {
-        return /node_modules\/art/.test(modulePath);
+        return excludedPaths.some(path => new RegExp(path).test(modulePath));
     };
-    /*
-    defaultConfig.module.rules[0].exclude = function (modulePath) {
-        return /node_modules/.test(modulePath)
-            && !new RegExp('node_modules\/react-native-elements').test(modulePath)
-            && !new RegExp('node_modules\/@expo/vector-icons').test(modulePath)
-            && !new RegExp('node_modules\/react-native-touchable-scale').test(modulePath)
-            && !new RegExp('node_modules\/' + LIBRARY_NAME).test(modulePath);
-    };
-    */
 
     defaultConfig.module.rules.push({
         test: /\.ttf$/,

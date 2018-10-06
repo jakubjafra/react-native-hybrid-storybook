@@ -56,7 +56,6 @@ yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
         "storybook-web": "node ./node_modules/@storybook/react/dist/server/index.js -p 9001 -c ./node_modules/react-native-hybrid-storybook/src/web/storybook",
     },
     "react-native-hybrid-storybook": {
-        "expo": true,
         "magic": {
             "autoResolveStories": true
         }
@@ -99,7 +98,6 @@ In your `package.json` there is a possibility to specify few options:
 
 | Option                        | Allowed values | Default  | Meaning                  |
 |:-----------------------------:|:--------------:|:--------:|:------------------------:|
-| `expo`                        | `true`, `false` | `false` | Is this an expo project? This information is helpful for `web` rendering |
 | `magic.autoResolveStories`    | `true`, `false` | `false` | In `web` mode it can automatically resolve `*.story.js` files for you, without maintaing list in `storybook.js` |
 | `addonOptions`                | `object`        | (below) | See [`addon-options` documentation for reference](https://github.com/storybooks/storybook/tree/master/addons/options). |
 | `getStorybookUI`              | `object`       | (below) | See [`storybook/react-native` plugin documentation for reference](https://github.com/storybooks/storybook/tree/master/app/react-native#getstorybookui-options). No effect in web mode. |
@@ -107,7 +105,6 @@ In your `package.json` there is a possibility to specify few options:
 Defaults:
 ````
 {
-    "expo": false,
     "magic": {
         "autoResolveStories": false,
     },

@@ -19,7 +19,6 @@ yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
         "storybook-web": "node ./node_modules/@storybook/react/dist/server/index.js -p 9001 -c ./node_modules/react-native-hybrid-storybook/src/web/storybook",
     },
     "react-native-hybrid-storybook": {
-        "expo": true,
         "magic": {
             "autoResolveStories": true
         }
@@ -70,7 +69,6 @@ yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
         "storybook-native": "node ./node_modules/@storybook/react-native/dist/bin/storybook-start.js -p 7007 -c ./node_modules/react-native-hybrid-storybook/src/native/storybook"
     },
     "react-native-hybrid-storybook": {
-        "expo": true,
         "magic": {
             "autoResolveStories": true
         }
@@ -149,7 +147,6 @@ yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
         "storybook-web": "node ./node_modules/@storybook/react/dist/server/index.js -p 9001 -c ./node_modules/react-native-hybrid-storybook/src/web/storybook",
     },
     "react-native-hybrid-storybook": {
-        "expo": false,
         "magic": {
             "autoResolveStories": true
         }
@@ -200,7 +197,6 @@ yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
         "storybook-native": "node ./node_modules/@storybook/react-native/dist/bin/storybook-start.js -p 7007 -c ./node_modules/react-native-hybrid-storybook/src/native/storybook"
     },
     "react-native-hybrid-storybook": {
-        "expo": false,
         "magic": {
             "autoResolveStories": true
         }

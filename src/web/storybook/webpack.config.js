@@ -34,9 +34,9 @@ module.exports = (storybookBaseConfig, configType, defaultConfig) => {
     };
 
     defaultConfig.module.rules.push({
-        test: /\.ttf$/,
-        loader: 'url-loader', // or directly file-loader
-        include: path.resolve(PWD, 'node_modules/react-native-vector-icons'),
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader',
+        include: path.resolve(PWD, 'node_modules/react-native-vector-icons/Fonts'),
     });
 
     // see ./config.js for __STORYBOOK_CONFIG usage

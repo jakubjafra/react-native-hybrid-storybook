@@ -7,6 +7,7 @@ import {
     inlineHostDecorator,
 } from './components/Host';
 import './components/Story';
+import { loadFont } from './components/Fonts';
 
 module.exports = {
     storiesOf,
@@ -14,6 +15,7 @@ module.exports = {
     createHostDecorator,
     fullScreenHostDecorator,
     inlineHostDecorator,
+    loadFont,
 
     // for *-native compatibility
     StorybookUI: {},

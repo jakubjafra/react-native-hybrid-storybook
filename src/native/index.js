@@ -9,6 +9,7 @@ module.exports = {
     StorybookUI,
 
     // *-web compatibility no-op exports...
+    loadFont: () => {},
     Host: React.Fragment,
     createHostDecorator: () => NoOpDecorator,
     fullScreenHostDecorator: NoOpDecorator,

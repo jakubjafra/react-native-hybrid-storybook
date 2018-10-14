@@ -53,10 +53,9 @@ yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
 ````json
 {
     "scripts": {
-        "storybook-web": "node ./node_modules/@storybook/react/dist/server/index.js -p 9001 -c ./node_modules/react-native-hybrid-storybook/src/web/storybook",
+        "storybook-web": "node ./node_modules/@storybook/react/dist/server/index.js -c ./node_modules/react-native-hybrid-storybook/src/web/storybook",
     },
     "react-native-hybrid-storybook": {
-        "expo": true,
         "magic": {
             "autoResolveStories": true
         }
@@ -82,35 +81,55 @@ storiesOf('ExampleComponent', module)
 
 Run documentation (in web mode):
 ````bash
-yarn run storybook-web # Now open http://localhost:9001 in the browser
+yarn run storybook-web -p 9001 # Now open http://localhost:9001 in the browser
 ````
 
 ### Recipes
+
+Integration examples:
 
 | Stack                 | Web rendering only ("**minimal**")    | Web & native rendering ("**full**")    |
 |:---------------------:|:-------------------------------------:|:----------------------------------:|
 | Expo / CRNA           | [Integration](docs/integration.md#minimal), [Example](https://github.com/khronedev/react-native-hybrid-storybook-examples/tree/master/minimal-expo)  | [Integration](docs/integration.md#full), [Example](https://github.com/khronedev/react-native-hybrid-storybook-examples/tree/master/crna) |
 | "Pure" `react-native` | [Integration](docs/integration.md#minimal-1) | [Integration](docs/integration.md#full-1), [Example](https://github.com/khronedev/react-native-hybrid-storybook-examples/tree/master/rninit) |
 
+#### Custom fonts / icons
+In order to use your custom font or icon in the web mode, you need to bundle the file manually. For example, if using Font Awesome icons from [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) in your `storybook.js` file you need to add:
+````js
+import { loadFont } from 'react-native-hybrid-storybook';
+import fontAwesome from 'react-native-vector-icons/Fonts/FontAwesome.ttf';
+
+loadFont(fontAwesome, 'FontAwesome');
+````
+The `loadFont` function takes font file as first argument, and font name as a second.
+
 Configuration options
 ---------------------
 
 In your `package.json` there is a possibility to specify few options:
 
-| Option                        | Allowed values | Default  | Meaning                  |
-|:-----------------------------:|:--------------:|:--------:|:------------------------:|
-| `expo`                        | `true`, `false` | `false` | Is this an expo project? This information is helpful for `web` rendering |
+| Option                        | Allowed values  | Default  | Meaning                  |
+|:-----------------------------:|:---------------:|:--------:|:------------------------:|
 | `magic.autoResolveStories`    | `true`, `false` | `false` | In `web` mode it can automatically resolve `*.story.js` files for you, without maintaing list in `storybook.js` |
+| `magic.overwritePlatform`     | `false`, `"ios"`, `"android"`, `"web"` | `false` | Set custom `Platform.OS` value. Default is `"web"`, that might be unrecognized by 3rd party libs. |
+| `excludedPaths`               | `array`         | (below) | Excluded paths from bundling with custom babel loader (for `web` mode). |
+| `includedFontPaths`           | `array`         | (below) | Paths with assets to be included in the bundle, in order to load them (for `web` mode). For custom fonts and `react-naive-vector-icons` compatibility. |
 | `addonOptions`                | `object`        | (below) | See [`addon-options` documentation for reference](https://github.com/storybooks/storybook/tree/master/addons/options). |
-| `getStorybookUI`              | `object`       | (below) | See [`storybook/react-native` plugin documentation for reference](https://github.com/storybooks/storybook/tree/master/app/react-native#getstorybookui-options). No effect in web mode. |
+| `getStorybookUI`              | `object`        | (below) | See [`storybook/react-native` plugin documentation for reference](https://github.com/storybooks/storybook/tree/master/app/react-native#getstorybookui-options). No effect in web mode. |
 
 Defaults:
 ````
 {
-    "expo": false,
     "magic": {
+        "overwritePlatform": false,
         "autoResolveStories": false,
     },
+    "excludedPaths": [
+        "node_modules/art",
+    ],
+    "includedFontPaths": [
+        "node_modules/react-native-vector-icons",
+    ],
     "addonOptions": {
         "addonPanelInRight": true,
     },

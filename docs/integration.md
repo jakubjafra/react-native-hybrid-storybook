@@ -16,10 +16,9 @@ yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
 ````
 {
     "scripts": {
-        "storybook-web": "node ./node_modules/@storybook/react/dist/server/index.js -p 9001 -c ./node_modules/react-native-hybrid-storybook/src/web/storybook",
+        "storybook-web": "node ./node_modules/@storybook/react/dist/server/index.js -c ./node_modules/react-native-hybrid-storybook/src/web/storybook",
     },
     "react-native-hybrid-storybook": {
-        "expo": true,
         "magic": {
             "autoResolveStories": true
         }
@@ -45,7 +44,7 @@ storiesOf('ExampleComponent', module)
 
 Run documentation (in web mode):
 ````
-yarn run storybook-web
+yarn run storybook-web -p 9001
 
 # Open http://localhost:9001 in the browser
 ````
@@ -65,12 +64,11 @@ yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
 ````
 {
     "scripts": {
-        "storybook-web": "node ./node_modules/@storybook/react/dist/server/index.js -p 9001 -c ./node_modules/react-native-hybrid-storybook/src/web/storybook",
+        "storybook-web": "node ./node_modules/@storybook/react/dist/server/index.js -c ./node_modules/react-native-hybrid-storybook/src/web/storybook",
         "storybook-native-device": "REACT_NATIVE_STORYBOOK=true expo start",
         "storybook-native": "node ./node_modules/@storybook/react-native/dist/bin/storybook-start.js -p 7007 -c ./node_modules/react-native-hybrid-storybook/src/native/storybook"
     },
     "react-native-hybrid-storybook": {
-        "expo": true,
         "magic": {
             "autoResolveStories": true
         }
@@ -112,7 +110,7 @@ export default process.env.REACT_NATIVE_STORYBOOK ? Storybook : App;
 
 A) Run documentation (in web mode):
 ````
-yarn run storybook-web
+yarn run storybook-web -p 9001
 
 # Open http://localhost:9001 in the browser
 ````
@@ -146,10 +144,9 @@ yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
 ````
 {
     "scripts": {
-        "storybook-web": "node ./node_modules/@storybook/react/dist/server/index.js -p 9001 -c ./node_modules/react-native-hybrid-storybook/src/web/storybook",
+        "storybook-web": "node ./node_modules/@storybook/react/dist/server/index.js -c ./node_modules/react-native-hybrid-storybook/src/web/storybook",
     },
     "react-native-hybrid-storybook": {
-        "expo": false,
         "magic": {
             "autoResolveStories": true
         }
@@ -175,7 +172,7 @@ storiesOf('ExampleComponent', module)
 
 Run documentation (in web mode):
 ````
-yarn run storybook-web
+yarn run storybook-web -p 9001
 
 # Open http://localhost:9001 in the browser
 ````
@@ -195,12 +192,11 @@ yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
 ````
 {
     "scripts": {
-        "storybook-web": "node ./node_modules/@storybook/react/dist/server/index.js -p 9001 -c ./node_modules/react-native-hybrid-storybook/src/web/storybook",
+        "storybook-web": "node ./node_modules/@storybook/react/dist/server/index.js -c ./node_modules/react-native-hybrid-storybook/src/web/storybook",
         "storybook-native-device": "REACT_NATIVE_STORYBOOK=true node node_modules/react-native/local-cli/cli.js start",
         "storybook-native": "node ./node_modules/@storybook/react-native/dist/bin/storybook-start.js -p 7007 -c ./node_modules/react-native-hybrid-storybook/src/native/storybook"
     },
     "react-native-hybrid-storybook": {
-        "expo": false,
         "magic": {
             "autoResolveStories": true
         }
@@ -253,7 +249,7 @@ export default process.env.REACT_NATIVE_STORYBOOK ? Storybook : App;
 
 A) Run documentation (in web mode):
 ````
-yarn run storybook-web
+yarn run storybook-web -p 9001
 
 # Open http://localhost:9001 in the browser
 ````

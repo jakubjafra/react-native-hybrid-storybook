@@ -11,6 +11,7 @@
     "@storybook/addons": "^3.4.11",
     "@storybook/react": "^3.4.11",
     "@storybook/react-native": "^3.4.11",
+    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
     "lodash.merge": "^4.6.1",
     "prop-types": "^15.6.2",
     "react-art": "^16.5.2",

@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 const webpack = require('webpack');
 
 const { createConfig, LIBRARY_NAME } = require('../../common/config');
@@ -10,14 +11,12 @@ const packageJson = JSON.parse(fs.readFileSync(PWD + '/package.json'));
 module.exports = (storybookBaseConfig, configType, defaultConfig) => {
     const config = createConfig(packageJson);
 
+    const { excludedPaths, includedFontPaths } = config;
+
     const alias = {
         [LIBRARY_NAME]: LIBRARY_NAME + '/src/web',
-        'react-native': 'react-native-web',
+        'react-native': 'react-native-web'
     };
-
-    if (config.expo) {
-        alias['react-native-vector-icons'] = '@expo/vector-icons';
-    }
 
     defaultConfig.resolve = {
         modules: ['node_modules'],
@@ -27,9 +26,15 @@ module.exports = (storybookBaseConfig, configType, defaultConfig) => {
 
     // babel loader
     defaultConfig.module.rules[0].exclude = function (modulePath) {
-        return /node_modules/.test(modulePath)
-            && !new RegExp('node_modules\/' + LIBRARY_NAME).test(modulePath);
+        return excludedPaths.some(path => new RegExp(path).test(modulePath));
     };
+
+    defaultConfig.module.rules.push({
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader',
+        include: includedFontPaths.map(p => path.resolve(__dirname, p)),
+        query: { name: 'static/media/[name].[hash:8].[ext]' },
+    });
 
     // see ./config.js for __STORYBOOK_CONFIG usage
     defaultConfig.plugins.push(new webpack.DefinePlugin({

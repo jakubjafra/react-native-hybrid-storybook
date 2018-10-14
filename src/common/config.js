@@ -5,10 +5,16 @@ const LIBRARY_NAME = 'react-native-hybrid-storybook';
 const PACKAGE_JSON_ENTRY = LIBRARY_NAME;
 
 const DEFAULT_CONFIG = {
-    expo: false,
     magic: {
+        overwritePlatform: false,
         autoResolveStories: false,
     },
+    excludedPaths: [
+        'node_modules/art',
+    ],
+    includedFontPaths: [
+        'node_modules/react-native-vector-icons',
+    ],
     addonOptions: {
         addonPanelInRight: true,
     },

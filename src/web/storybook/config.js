@@ -6,10 +6,23 @@ import { withKnobs } from '@storybook/addon-knobs';
 
 import chaptersAddon, { setDefaults as chaptersAddonSetDefaults } from 'react-storybook-addon-chapters';
 
+const reactNativeWeb = require('react-native-web');
+
 const {
     magic,
     addonOptions,
 } = process.env.__STORYBOOK_CONFIG;
+
+if (magic.overwritePlatform) {
+    const OS = magic.overwritePlatform;
+
+    reactNativeWeb.Platform = {
+        OS,
+        select: function select(obj) {
+            return OS in obj ? obj[OS] : obj.default;
+        }
+    };
+}
 
 const autoResolveReq = magic.autoResolveStories === true
     ? require.context('../../../../../', true, /\.story\.js$/)

@@ -111,6 +111,7 @@ In your `package.json` there is a possibility to specify few options:
 | Option                        | Allowed values | Default  | Meaning                  |
 |:-----------------------------:|:--------------:|:--------:|:------------------------:|
 | `magic.autoResolveStories`    | `true`, `false` | `false` | In `web` mode it can automatically resolve `*.story.js` files for you, without maintaing list in `storybook.js` |
+| `magic.overwritePlatform`    | `false`, `"ios"`, `"android"`, `"web"` | `false` | Set custom `Platform.OS` value. Default is `"web"`, that might be unrecognized by 3rd party libs. |
 | `addonOptions`                | `object`        | (below) | See [`addon-options` documentation for reference](https://github.com/storybooks/storybook/tree/master/addons/options). |
 | `getStorybookUI`              | `object`       | (below) | See [`storybook/react-native` plugin documentation for reference](https://github.com/storybooks/storybook/tree/master/app/react-native#getstorybookui-options). No effect in web mode. |
 
@@ -118,6 +119,7 @@ Defaults:
 ````
 {
     "magic": {
+        "overwritePlatform": false,
         "autoResolveStories": false,
     },
     "addonOptions": {

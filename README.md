@@ -108,12 +108,14 @@ Configuration options
 
 In your `package.json` there is a possibility to specify few options:
 
-| Option                        | Allowed values | Default  | Meaning                  |
-|:-----------------------------:|:--------------:|:--------:|:------------------------:|
+| Option                        | Allowed values  | Default  | Meaning                  |
+|:-----------------------------:|:---------------:|:--------:|:------------------------:|
 | `magic.autoResolveStories`    | `true`, `false` | `false` | In `web` mode it can automatically resolve `*.story.js` files for you, without maintaing list in `storybook.js` |
-| `magic.overwritePlatform`    | `false`, `"ios"`, `"android"`, `"web"` | `false` | Set custom `Platform.OS` value. Default is `"web"`, that might be unrecognized by 3rd party libs. |
+| `magic.overwritePlatform`     | `false`, `"ios"`, `"android"`, `"web"` | `false` | Set custom `Platform.OS` value. Default is `"web"`, that might be unrecognized by 3rd party libs. |
+| `excludedPaths`               | `array`         | (below) | Excluded paths from bundling with custom babel loader (for `web` mode). |
+| `includedFontPaths`           | `array`         | (below) | Paths with assets to be included in the bundle, in order to load them (for `web` mode). For custom fonts and `react-naive-vector-icons` compatibility. |
 | `addonOptions`                | `object`        | (below) | See [`addon-options` documentation for reference](https://github.com/storybooks/storybook/tree/master/addons/options). |
-| `getStorybookUI`              | `object`       | (below) | See [`storybook/react-native` plugin documentation for reference](https://github.com/storybooks/storybook/tree/master/app/react-native#getstorybookui-options). No effect in web mode. |
+| `getStorybookUI`              | `object`        | (below) | See [`storybook/react-native` plugin documentation for reference](https://github.com/storybooks/storybook/tree/master/app/react-native#getstorybookui-options). No effect in web mode. |
 
 Defaults:
 ````
@@ -122,6 +124,12 @@ Defaults:
         "overwritePlatform": false,
         "autoResolveStories": false,
     },
+    "excludedPaths": [
+        "node_modules/art",
+    ],
+    "includedFontPaths": [
+        "node_modules/react-native-vector-icons",
+    ],
     "addonOptions": {
         "addonPanelInRight": true,
     },

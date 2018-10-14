@@ -9,6 +9,12 @@ const DEFAULT_CONFIG = {
         overwritePlatform: false,
         autoResolveStories: false,
     },
+    excludedPaths: [
+        'node_modules/art',
+    ],
+    includedFontPaths: [
+        'node_modules/react-native-vector-icons',
+    ],
     addonOptions: {
         addonPanelInRight: true,
     },

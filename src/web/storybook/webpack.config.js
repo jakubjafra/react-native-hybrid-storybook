@@ -8,18 +8,10 @@ const PATH_TO_PARENT_ROOT = '../../../../../../';
 const PWD = process.env.PWD || fs.realpathSync(__dirname + PATH_TO_PARENT_ROOT);
 const packageJson = JSON.parse(fs.readFileSync(PWD + '/package.json'));
 
-// TODO: Move to default config
-const excludedPaths = [
-    'node_modules/art',
-];
-
-// TODO: Move to default config
-const includedFontPaths = [
-    'node_modules/react-native-vector-icons',
-];
-
 module.exports = (storybookBaseConfig, configType, defaultConfig) => {
     const config = createConfig(packageJson);
+
+    const { excludedPaths, includedFontPaths } = config;
 
     const alias = {
         [LIBRARY_NAME]: LIBRARY_NAME + '/src/web',
@@ -31,8 +23,6 @@ module.exports = (storybookBaseConfig, configType, defaultConfig) => {
         extensions: ['.web.js', '.js', '.json', '.web.jsx', '.jsx'],
         alias: alias,
     };
-
-    defaultConfig.module.rules[0].exclude = [];
 
     // babel loader
     defaultConfig.module.rules[0].exclude = function (modulePath) {

@@ -53,7 +53,7 @@ yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
 ````json
 {
     "scripts": {
-        "storybook-web": "node ./node_modules/@storybook/react/dist/server/index.js -p 9001 -c ./node_modules/react-native-hybrid-storybook/src/web/storybook",
+        "storybook-web": "node ./node_modules/@storybook/react/dist/server/index.js -c ./node_modules/react-native-hybrid-storybook/src/web/storybook",
     },
     "react-native-hybrid-storybook": {
         "magic": {
@@ -81,7 +81,7 @@ storiesOf('ExampleComponent', module)
 
 Run documentation (in web mode):
 ````bash
-yarn run storybook-web # Now open http://localhost:9001 in the browser
+yarn run storybook-web -p 9001 # Now open http://localhost:9001 in the browser
 ````
 
 ### Recipes

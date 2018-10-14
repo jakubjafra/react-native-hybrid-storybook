@@ -86,10 +86,22 @@ yarn run storybook-web # Now open http://localhost:9001 in the browser
 
 ### Recipes
 
+Integration examples:
+
 | Stack                 | Web rendering only ("**minimal**")    | Web & native rendering ("**full**")    |
 |:---------------------:|:-------------------------------------:|:----------------------------------:|
 | Expo / CRNA           | [Integration](docs/integration.md#minimal), [Example](https://github.com/khronedev/react-native-hybrid-storybook-examples/tree/master/minimal-expo)  | [Integration](docs/integration.md#full), [Example](https://github.com/khronedev/react-native-hybrid-storybook-examples/tree/master/crna) |
 | "Pure" `react-native` | [Integration](docs/integration.md#minimal-1) | [Integration](docs/integration.md#full-1), [Example](https://github.com/khronedev/react-native-hybrid-storybook-examples/tree/master/rninit) |
+
+#### Custom fonts / icons
+In order to use your custom font or icon in the web mode, you need to bundle the file manually. For example, if using Font Awesome icons from [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) in your `storybook.js` file you need to add:
+````js
+import { loadFont } from 'react-native-hybrid-storybook';
+import fontAwesome from 'react-native-vector-icons/Fonts/FontAwesome.ttf';
+
+loadFont(fontAwesome, 'FontAwesome');
+````
+The `loadFont` function takes font file as first argument, and font name as a second.
 
 Configuration options
 ---------------------

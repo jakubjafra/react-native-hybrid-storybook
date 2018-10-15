@@ -7,7 +7,7 @@ const PACKAGE_JSON_ENTRY = LIBRARY_NAME;
 const DEFAULT_CONFIG = {
     magic: {
         overwritePlatform: false,
-        autoResolveStories: false,
+        autoResolveStories: true,
     },
     excludedPaths: [
         'node_modules/art',

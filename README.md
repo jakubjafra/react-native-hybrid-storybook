@@ -3,9 +3,10 @@ react-native-hybrid-storybook
 
 Document your `react-native` project's UI components, with browser preview.
 
-![Example cover screenshot](docs/assets/cover.png?raw=true)
-
 This repository is a `react-native` optimized, predefined set of rules for [Storybook](https://storybook.js.org/) allowing you to easliy create per-project UI documentation for your `react-native` components.
+
+![Example cover screenshot](docs/assets/cover.png?raw=true)
+_Example `react-native-elements` web & native rendering of same `CheckBox` component stories._
 
 Philosophy
 ----------
@@ -177,6 +178,11 @@ Run bundler for use on the device:
 ````bash
 node ./node_modules/@storybook/react-native/dist/bin/storybook-start.js -p 7007 -c ./node_modules/react-native-hybrid-storybook/src/native/storybook
 ````
+
+Versions
+--------
+
+The current version is using latest `react-native-web` (of version `^0.9.0`). It's compatible (with exsiting working examples) with Expo SDK 30 (using react-native of version `0.55.4`) and "pure" `react-native` apps of latest `0.57.3`.
 
 Known issues
 ------------

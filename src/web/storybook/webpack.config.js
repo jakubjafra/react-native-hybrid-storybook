@@ -15,7 +15,8 @@ module.exports = (storybookBaseConfig, configType, defaultConfig) => {
 
     const alias = {
         [LIBRARY_NAME]: LIBRARY_NAME + '/src/web',
-        'react-native': 'react-native-web'
+        'react-native': 'react-native-web',
+        '@expo/vector-icons/fonts': 'react-native-vector-icons/Fonts',
     };
 
     defaultConfig.resolve = {

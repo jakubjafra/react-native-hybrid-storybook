@@ -1,6 +1,8 @@
 react-native-hybrid-storybook
 =============================
 
+[![npm version](https://badge.fury.io/js/react-native-hybrid-storybook.svg)](https://badge.fury.io/js/react-native-hybrid-storybook)
+
 Document your `react-native` project's UI components, with browser preview.
 
 This repository is a `react-native` optimized, predefined set of rules for [Storybook](https://storybook.js.org/) allowing you to easliy create per-project UI documentation for your `react-native` components.

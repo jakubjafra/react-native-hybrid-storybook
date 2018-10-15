@@ -113,7 +113,7 @@ In your `package.json` there is a possibility to specify few options:
 | `getStorybookUI`              | `object`        | (below) | See [`storybook/react-native` plugin documentation for reference](https://github.com/storybooks/storybook/tree/master/app/react-native#getstorybookui-options). No effect in web mode. |
 
 Defaults:
-````
+````js
 {
     "magic": {
         "overwritePlatform": false,
@@ -153,6 +153,30 @@ Examples
 --------
 
 [Many examples can be found in the examples repo.](https://github.com/khronedev/react-native-hybrid-storybook)
+
+Commands
+--------
+
+This lib mainly uses Storybook's commands with some custom config assigned. Cheat sheet of those can be found here.
+
+#### Web
+
+Run your components stories in the browser at `localhost:9001`:
+````bash
+node ./node_modules/@storybook/react/dist/server/index.js -p 9001 -c ./node_modules/react-native-hybrid-storybook/src/web/storybook
+````
+
+Build static version of the web documentation to `output` folder:
+````bash
+build-storybook -c ./node_modules/react-native-hybrid-storybook/src/web/storybook -o output
+````
+
+#### Native
+
+Run bundler for use on the device:
+````bash
+node ./node_modules/@storybook/react-native/dist/bin/storybook-start.js -p 7007 -c ./node_modules/react-native-hybrid-storybook/src/native/storybook
+````
 
 Known issues
 ------------

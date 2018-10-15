@@ -1,9 +1,8 @@
 {
   "name": "react-native-hybrid-storybook",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Jakub Jafra",
-  "license": "UNLICENSED",
-  "private": true,
+  "license": "MIT",
   "dependencies": {
     "@storybook/addon-actions": "^3.4.11",
     "@storybook/addon-knobs": "^3.4.11",

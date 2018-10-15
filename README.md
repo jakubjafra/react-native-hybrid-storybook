@@ -49,21 +49,16 @@ Minimal recipe to start documenting your react-native UI & components in the web
 yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
 ````
 
-2. Add these entries to `package.json`:
+2. Add this entry to `package.json`:
 ````json
 {
     "scripts": {
         "storybook-web": "node ./node_modules/@storybook/react/dist/server/index.js -c ./node_modules/react-native-hybrid-storybook/src/web/storybook",
-    },
-    "react-native-hybrid-storybook": {
-        "magic": {
-            "autoResolveStories": true
-        }
     }
 }
 ````
 
-3. Create any documentation entry for your component as `ExampleComponent.story.js`:
+3. Create a documentation for your component as `ExampleComponent.story.js` somewhere in your project:
 ````js
 import React from 'react';
 import {
@@ -110,7 +105,7 @@ In your `package.json` there is a possibility to specify few options:
 
 | Option                        | Allowed values  | Default  | Meaning                  |
 |:-----------------------------:|:---------------:|:--------:|:------------------------:|
-| `magic.autoResolveStories`    | `true`, `false` | `false` | In `web` mode it can automatically resolve `*.story.js` files for you, without maintaing list in `storybook.js` |
+| `magic.autoResolveStories`    | `true`, `false` | `true` | In `web` mode it can automatically resolve `*.story.js` files for you, without maintaing list in `storybook.js` |
 | `magic.overwritePlatform`     | `false`, `"ios"`, `"android"`, `"web"` | `false` | Set custom `Platform.OS` value. Default is `"web"`, that might be unrecognized by 3rd party libs. |
 | `excludedPaths`               | `array`         | (below) | Excluded paths from bundling with custom babel loader (for `web` mode). |
 | `includedFontPaths`           | `array`         | (below) | Paths with assets to be included in the bundle, in order to load them (for `web` mode). For custom fonts and `react-naive-vector-icons` compatibility. |
@@ -122,7 +117,7 @@ Defaults:
 {
     "magic": {
         "overwritePlatform": false,
-        "autoResolveStories": false,
+        "autoResolveStories": true,
     },
     "excludedPaths": [
         "node_modules/art",

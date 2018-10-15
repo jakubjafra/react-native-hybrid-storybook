@@ -5,7 +5,7 @@ Document your `react-native` project's UI components, with browser preview.
 
 This repository is a `react-native` optimized, predefined set of rules for [Storybook](https://storybook.js.org/) allowing you to easliy create per-project UI documentation for your `react-native` components.
 
-![Example cover screenshot](docs/assets/cover.png?raw=true)
+![Example cover screenshot](https://raw.githubusercontent.com/khronedev/react-native-hybrid-storybook/master/docs/assets/cover.png)
 _Example `react-native-elements` web & native rendering of same `CheckBox` component stories._
 
 Philosophy
@@ -47,7 +47,7 @@ Minimal recipe to start documenting your react-native UI & components in the web
 
 1. Install package:
 ````bash
-yarn add https://github.com/khronedev/react-native-hybrid-storybook.git
+yarn add react-native-hybrid-storybook
 ````
 
 2. Add this entry to `package.json`:
